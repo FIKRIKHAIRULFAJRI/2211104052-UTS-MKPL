@@ -1,5 +1,6 @@
 package lib;
-
+ 
+// menambahkan file TaxData untuk mempermudah keterbacaan method pada TaxFunction
 public class TaxData {
     public int monthlySalary;
     public int otherMonthlyIncome;
