@@ -16,5 +16,18 @@ public class TaxFunction {
 	
 	
 	 public static int calculateTax(TaxData data) {
-		// logic lama, tinggal ganti semua parameter jadi data.monthlySalary, dst.
-	 }
+		int taxableIncome = (data.monthlySalary + data.otherMonthlyIncome) * data.monthWorkingInYear - data.annualDeductible;
+		int tax = 0;
+	
+		if (data.isSingle) {
+			tax = (int) Math.round(0.05 * taxableIncome);
+		} else {
+			tax = (int) Math.round(0.05 * taxableIncome - 1000000);
+		}
+	
+		tax -= data.numberOfChildren * 250000;
+	
+		if (tax < 0) tax = 0;
+		return tax;
+	}
+	
